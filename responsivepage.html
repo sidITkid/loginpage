@@ -1,0 +1,201 @@
+<html>
+    <head>
+        <title>LOG IN PAGE</title>
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="google-signin-client_id" content="202927576615-ighdq8mtf52e4l1ems7bdq2o8dngvcl2.apps.googleusercontent.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Rajdhani&display=swap" rel="stylesheet">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    </head>
+    <style>
+    body {
+        background-image: url(bckgforrespo.jpg);
+        }
+    .wrap {
+        max-width: 400px;
+        margin: auto;
+        margin-top:80px;
+        padding: 40px;
+        font-family: sans-serif;
+        background: teal;
+        border: 5px;
+        border-radius: 5mm;
+    }
+    .wrap h3
+    {
+        font-size: 30px;
+        margin: relative;
+        margin-top: -5px;
+        margin-left: 100px;
+    }
+    button 
+    {
+        padding: 10px;
+        width:49%;
+        width: 150px;
+        font-weight: bold;
+        font-size: 1.3em;
+        border: 2px;
+        cursor: pointer;
+    }
+    button:hover
+    {
+        background-color: whitesmoke;
+    }
+    button:nth-child(1)
+    {
+        margin-left: 10px; 
+        margin-top: 10px;
+        font-size: 20px;
+        border: 2px solid blue;
+        border-radius: 20px;
+    }
+
+    .g-signin2
+    {
+        margin-left: 30px;
+    }
+
+    .text1
+    {
+        padding: 30px;
+        font-style:oblique;
+        font-size: 20px;
+    }
+
+    #username
+    {
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-left: 20px;
+    }
+
+    input[type=text],input[type=password]
+    {
+        width:100%;
+        padding: 6px;
+        margin-top: 8px;
+        border-radius: 10px;
+        margin-left: 18px;
+        margin-bottom: 10px;
+        border: 2px solid black;
+
+    }
+    #password
+    {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-left: 20px;
+        margin-top: 10px;
+    }
+    #button1
+    {
+        margin-top: 20px;
+        margin-left: 90px;
+        width: 41%;
+        height: 5%;
+        border-radius: 10px;
+        border: 2px solid black;
+        cursor: pointer;
+        margin-bottom: 20px;
+    }
+
+    #button1:hover
+    {
+        background-color:blue;
+        color:white;
+    }
+
+    #sign
+    {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-style: oblique;
+        margin-left: 160px;
+        color:navy;
+    }
+
+    #up
+    {
+        cursor: pointer;
+    }
+
+    .forgot
+    {
+        margin-left: 270px;
+        font-size: 15px;
+        color: brown;
+    }
+
+    #signbutton
+    {
+        width: 17%;
+        height: 5%;
+        font-size:12px;
+        padding: 3px;
+        margin-left: 154px;
+        margin-top: -89px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+
+    }
+
+    </style>
+    <body>
+        <div class="wrap">
+            <h3>LOG IN WITH</h3>
+            <div class="social">
+            <!--<button class="fb-login-button">-->
+            <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></button>
+        </div>
+            <form action="loggedin.html" onsubmit="return validate()">
+            <div class="text1">
+            <label id="username">username</label><br>
+            <input type="text" placeholder="username" id="usrname"><br>
+            <label id="password" >password</label><br>
+            <input type="password" placeholder="password" id="pasword"><br>
+            <input type="submit" id="button1" >
+            </form>
+        </div>
+        <form action="signup.html" onclick="return validate1()">
+            <p id="sign">sign up? <br>new user</p><button id="signbutton">sign up</button></form>
+            <form class="forgot"><input type="checkbox"/><label>forgot password</label>
+                </form>
+        </div>
+    </body>
+    <script type="text/javascript">
+    function validate()
+    {
+        var username = document.getElementById("usrname").value;
+        var password = document.getElementById("pasword").value;
+        //document.writeln(username + "\n");
+        //document.writeln(password);
+        if(username=='siddharth' && password=='16100790')
+        {
+            return true;
+            document.writeln(username + "\n");
+            document.writeln(password);
+           
+        }
+        else
+        {
+             return false;
+        }
+
+        
+    }
+    
+    function validate1() {
+        return 
+        true;
+    }
+
+    function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+            var id_token = googleUser.getAuthResponse().id_token;
+            console.log("ID Token: " + id_token);
+        }
+    </script>
+</html>
